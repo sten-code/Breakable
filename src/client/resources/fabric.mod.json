@@ -1,16 +1,17 @@
 {
 	"schemaVersion": 1,
 	"id": "breakable",
-	"version": "${version}",
+	"version": "1.0.0",
 	"name": "Breakable",
 	"description": "Prevents the player from using an item or tool that is at 1 durability.",
 	"authors": [
-		"stencode"
+		"sten-code"
 	],
 	"contact": {
-		"sources": "https://github.com/stencode/Breakable"
+		"issues": "https://github.com/sten-code/Breakable/issues",
+		"sources": "https://github.com/sten-code/Breakable"
 	},
-	"license": "CC0-1.0",
+	"license": "GPL-3.0",
 	"icon": "assets/breakable/icon.png",
 	"environment": "*",
 	"entrypoints": {
