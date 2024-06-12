@@ -4,6 +4,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
+import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
@@ -34,6 +35,7 @@ public class BreakableClient implements ClientModInitializer {
 		});
 
 		AttackBlockCallback.EVENT.register((player, world, hand, pos, direction) -> blockCallback(player, hand));
+		AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> blockCallback(player, hand));
 		UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> blockCallback(player, hand));
 	}
 
