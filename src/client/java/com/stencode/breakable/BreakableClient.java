@@ -13,7 +13,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
-import org.jetbrains.annotations.NotNull;
 
 public class BreakableClient implements ClientModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger();
@@ -39,7 +38,6 @@ public class BreakableClient implements ClientModInitializer {
 		UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> blockCallback(player, hand));
 	}
 
-	@NotNull
 	private ActionResult blockCallback(PlayerEntity player, Hand hand) {
 		ItemStack itemStack = player.getStackInHand(hand);
 		if (ModConfig.INSTANCE.enabled && itemStack.isDamageable() && itemStack.getMaxDamage() - itemStack.getDamage() <= 1) {
