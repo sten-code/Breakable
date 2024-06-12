@@ -1,0 +1,10 @@
+{
+  "text.autoconfig.breakable.title": "Breakable",
+  "text.autoconfig.breakable.option.enabled": "Enabled",
+  "text.autoconfig.breakable.option.enabled.@Tooltip": "When enabled, it will block you from breaking your items or tools when it is at 1 durability.",
+  "text.autoconfig.breakable.option.showNotification": "Show Notification",
+  "text.autoconfig.breakable.option.showNotification.@Tooltip": "Determines if a notification should be displayed in the action bar.",
+
+  "modmenu.summaryTranslation.breakable": "Prevents the player from using an item or tool that is at 1 durability.",
+  "modmenu.descriptionTranslation.breakable": "Prevents the player from using an item or tool that is at 1 durability."
+}

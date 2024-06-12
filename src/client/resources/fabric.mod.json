@@ -1,0 +1,39 @@
+{
+	"schemaVersion": 1,
+	"id": "breakable",
+	"version": "${version}",
+	"name": "Breakable",
+	"description": "Prevents the player from using an item or tool that is at 1 durability.",
+	"authors": [
+		"stencode"
+	],
+	"contact": {
+		"sources": "https://github.com/stencode/Breakable"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/breakable/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
+			"com.stencode.breakable.BreakableClient"
+		],
+		"modmenu": [
+			"com.stencode.breakable.ModMenuIntegration"
+		]
+	},
+	"mixins": [
+		{
+			"config": "breakable.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.20.6",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
