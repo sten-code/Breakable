@@ -24,4 +24,7 @@ public class ModConfig implements ConfigData {
     @ConfigEntry.Gui.Tooltip()
     public boolean showNotification = true;
 
+    @ConfigEntry.Gui.Tooltip()
+    public int shieldDamageThreshold = 20;
+
 }

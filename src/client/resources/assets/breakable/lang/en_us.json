@@ -4,7 +4,12 @@
   "text.autoconfig.breakable.option.enabled.@Tooltip": "When enabled, it will block you from breaking your items or tools when it is at 1 durability.",
   "text.autoconfig.breakable.option.showNotification": "Show Notification",
   "text.autoconfig.breakable.option.showNotification.@Tooltip": "Determines if a notification should be displayed in the action bar.",
+  "text.autoconfig.breakable.option.shieldDamageThreshold": "Shield Durability Threshold",
+  "text.autoconfig.breakable.option.shieldDamageThreshold.@Tooltip": "Shields take damage based on the attack they block, this setting is the minimum amount of durability required for the shield to be used.",
 
   "modmenu.summaryTranslation.breakable": "Prevents the player from using an item or tool that is at 1 durability.",
-  "modmenu.descriptionTranslation.breakable": "Prevents the player from using an item or tool that is at 1 durability."
+  "modmenu.descriptionTranslation.breakable": "Prevents the player from using an item or tool that is at 1 durability.",
+
+  "key.stencode.breakable.overwrite": "Overwrite",
+  "category.stencode.breakable": "Breakable"
 }
