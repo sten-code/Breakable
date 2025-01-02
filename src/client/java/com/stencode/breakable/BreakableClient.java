@@ -22,7 +22,6 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.TypedActionResult;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import org.lwjgl.glfw.GLFW;
@@ -50,14 +49,14 @@ public class BreakableClient implements ClientModInitializer {
             // When the player is right-clicking an item without looking at a block or entity
             ItemStack itemStack = player.getStackInHand(hand);
             if (!ModConfig.INSTANCE.enabled || !itemStack.isDamageable() || overwriteKey.isPressed())
-                return TypedActionResult.pass(itemStack);
+                return ActionResult.PASS;
 
             Item item = itemStack.getItem();
             if (item instanceof FishingRodItem) {
                 // The maximum amount of damage on a fishing rod that can be done in 1 action is yanking a mob which costs 5 durability.
                 if (itemStack.getMaxDamage() - itemStack.getDamage() <= 5) {
                     notify(player);
-                    return TypedActionResult.fail(itemStack);
+                    return ActionResult.FAIL;
                 }
             } else if (item instanceof CrossbowItem) {
                 Item projectile = player.getProjectileType(itemStack).getItem();
@@ -67,27 +66,27 @@ public class BreakableClient implements ClientModInitializer {
                 } else {
                     damage = 1;
                 }
-                RegistryEntry<Enchantment> entry = world.getRegistryManager().getWrapperOrThrow(RegistryKeys.ENCHANTMENT).getOrThrow(Enchantments.MULTISHOT);
+                RegistryEntry<Enchantment> entry = world.getRegistryManager().getOrThrow(RegistryKeys.ENCHANTMENT).getOrThrow(Enchantments.MULTISHOT);
                 int projectiles = EnchantmentHelper.getLevel(entry, itemStack) == 0 ? 1 : 3;
                 damage *= projectiles;
 
                 if (itemStack.getMaxDamage() - itemStack.getDamage() <= damage) {
                     notify(player);
-                    return TypedActionResult.fail(itemStack);
+                    return ActionResult.FAIL;
                 }
             } else if (item instanceof BowItem || item instanceof TridentItem) {
                 if (itemStack.getMaxDamage() - itemStack.getDamage() <= 1) {
                     notify(player);
-                    return TypedActionResult.fail(itemStack);
+                    return ActionResult.FAIL;
                 }
             } else if (item instanceof ShieldItem) {
                 if (itemStack.getMaxDamage() - itemStack.getDamage() <= ModConfig.INSTANCE.shieldDamageThreshold) {
                     notify(player);
-                    return TypedActionResult.fail(itemStack);
+                    return ActionResult.FAIL;
                 }
             }
 
-            return TypedActionResult.pass(itemStack);
+            return ActionResult.PASS;
         });
 
         AttackBlockCallback.EVENT.register((player, world, hand, pos, direction) -> {
